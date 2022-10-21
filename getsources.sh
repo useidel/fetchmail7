@@ -19,6 +19,6 @@ MYSHORTCOMMIT=`echo $MYCOMMIT| cut -c1-7`
 
 # Now download the sources to the correspoding RPMBUILD directory
 cd /github/home/rpmbuild/SOURCES
-git clone https://gitlab.com/$MYNAME/$MYNAME/-/archive/$MYCOMMIT/$MYNAME-$MYSHORTCOMMIT.tar.gz
+wget -nd https://gitlab.com/$MYNAME/$MYNAME/-/archive/$MYCOMMIT/$MYNAME-$MYSHORTCOMMIT.tar.gz
 
 
