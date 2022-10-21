@@ -5,15 +5,12 @@
 Summary: A remote mail retrieval and forwarding utility
 Name: fetchmail
 Version: 7.0.0
-Release: 0.1.%{shortcommit}%{?dist}
+Release: 0.2.%{shortcommit}%{?dist}
 Source0: https://gitlab.com/%{name}/%{name}/-/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 # systemd service file
 Source2: fetchmail.service
 # example configuration file
 Source3: fetchmailrc.example
-# Fedora 35 and older do not autoconf-2.71
-# Somehow just patching the file did not work in the RPM build environment
-Source4: configure.ac.autoconf.269
 #
 URL: http://www.fetchmail.info/
 # For a breakdown of the licensing, see COPYING
@@ -44,11 +41,6 @@ deployed for purposes other than testing and debugging.
 
 %prep
 %autosetup -n %{name}-%{commit}
-
-%if 0%{?fedora} < 36
-# configure.ac: don't use autoupdate and hence no need for autoconf >=2.71
-cp -f %{SOURCE4} configure.ac
-%endif
 
 %build
 ./autogen.sh
@@ -86,6 +78,9 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1*
 %config(noreplace) %attr(0600, mail, mail) %{_sysconfdir}/fetchmailrc.example
 
 %changelog
+* Sat Oct 22 2022 Udo Seidel <udoseidel@gmx.de> - 7.0.0-0.2.30b368f
+- SPEC file adapted to easily always use the latest commit - for automated package builds 
+
 * Thu Oct 20 2022 Udo Seidel <udoseidel@gmx.de> - 7.0.0-0.1.30b368f
 - Updated to latest next commit 
 - SPEC file adapted to package the *py *pyc files
