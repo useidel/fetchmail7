@@ -12,8 +12,9 @@ cd home*
 
 # copy (updated) files to working directory
 # note that the content from github is now in the upper directory
+# and the tar archives is in the RPM build area
 cp ../*spec fetchmail7/
-cp ../*.tar.gz fetchmail7/
+cp /github/home/rpmbuild/SOURCES/*.tar.gz fetchmail7/
 
 # mark files for update if there are new ones
 #cd dummy
