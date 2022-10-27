@@ -5,7 +5,7 @@
 Summary: A remote mail retrieval and forwarding utility
 Name: fetchmail
 Version: 7.0.0
-Release: 0.1.%{shortcommit}%{?dist}
+Release: 0.2.%{shortcommit}%{?dist}
 Source0: https://gitlab.com/%{name}/%{name}/-/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 # systemd service file
 Source2: fetchmail.service
