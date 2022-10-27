@@ -1,11 +1,11 @@
 %global alpha	alpha9
-%global commit	30b368fb8660d8fec08be1cdf2606c160b4bcb80
+%global commit	c140fc6bbaff7d5595d92f1459ccda5f7183d69c
 %global shortcommit	%(c=%{commit}; echo ${c:0:7})
 
 Summary: A remote mail retrieval and forwarding utility
 Name: fetchmail
 Version: 7.0.0
-Release: 0.2.%{shortcommit}%{?dist}
+Release: 0.1.%{shortcommit}%{?dist}
 Source0: https://gitlab.com/%{name}/%{name}/-/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 # systemd service file
 Source2: fetchmail.service
@@ -78,6 +78,9 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1*
 %config(noreplace) %attr(0600, mail, mail) %{_sysconfdir}/fetchmailrc.example
 
 %changelog
+* Thu Oct 27 2022 Udo Seidel <udoseidel@gmx.de> - 7.0.0-0.1.c140fc6
+- updated to latest next commit
+
 * Sat Oct 22 2022 Udo Seidel <udoseidel@gmx.de> - 7.0.0-0.2.30b368f
 - SPEC file adapted to easily always use the latest commit - for automated package builds 
 
