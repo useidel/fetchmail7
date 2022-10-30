@@ -24,5 +24,5 @@ osc add fetchmail7/*.tar.gz
 #cd ..
 
 # upload changed content
-osc ci -m "Update from $MYDATE" fetchmail7
+osc ci -m "$MY_GITHUB_COMMIT_MSG: $MYDATE" fetchmail7
 

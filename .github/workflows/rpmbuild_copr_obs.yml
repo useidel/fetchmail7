@@ -74,5 +74,8 @@ jobs:
 
       # prepare and trigger OBS package build
       - name:  prepare and trigger OBS package build
+      # we capture the commit message to use it for the obs submit
+        env: 
+          MY_GITHUB_COMMIT_MSG: ${{ github.event.head_commit.message }}
         run: ./submitobsbuild.sh
 
