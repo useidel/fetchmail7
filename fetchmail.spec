@@ -1,5 +1,5 @@
-%global alpha	alpha9
-%global commit	c8982106e00563c48064f527f37dffa2c21263eb
+%global alpha	alpha13
+%global commit	4e7107365ac0d8f6d16a965aefce71711116d0ac
 %global shortcommit	%(c=%{commit}; echo ${c:0:7})
 
 Summary: A remote mail retrieval and forwarding utility
@@ -73,12 +73,13 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/fetchmailconf.1*
 %{_bindir}/fetchmail
 %{_mandir}/man1/fetchmail.1*
 %{_unitdir}/fetchmail.service
-%{python3_sitelib}/fetchmailconf.py*
-%{python3_sitelib}/__pycache__/fetchmailconf*
 %config(noreplace) %attr(0600, mail, mail) %{_sysconfdir}/fetchmailrc.example
 
 %changelog
-* Wed Dec 04 2023 Udo Seidel <udoseidel@gmx.de> - 7.0.0-0.2.c898210
+* Sat Feb 07 2026 Udo Seidel <udoseidel@gmx.de> - 7.0.0-0.2.4e71073
+- updated to latest next commit
+
+* Mon Dec 04 2023 Udo Seidel <udoseidel@gmx.de> - 7.0.0-0.2.c898210
 - updated to latest next commit
 
 * Tue Nov 22 2022 Udo Seidel <udoseidel@gmx.de> - 7.0.0-0.2.374e2ba
